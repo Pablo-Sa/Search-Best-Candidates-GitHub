@@ -1,5 +1,6 @@
 # Search-Best-Candidates-GitHub
-Implementado Spring Data, Spring Security, Mockito, JUnit, AssertJ, Swagger, Tratamento de Exceções, Paginação e etc.
+Utilizado o Apache Camel (routing engine) para criar as rotas, seguindo as boas práticas do Enterprise Integration Patterns,
+onde o mesmo cita as vantagens e desvantagens de cada padrão e define um vocabulário comum a ser seguido. O Apache Camel, como framework de integração, implementa a maioria dos padrões de integração.
 
 ![alt text](camel-logo.png)
 
