@@ -16,6 +16,7 @@ Front-End Será Desenvolvido e Disponibilizado em meus repositórios futuramente
 `$ mvn test #Para rodar os testes`
 
 1.2 Para buildar a aplicação:
+
 `$ mvn clean install #buildando o pacote da aplicação`
 
 ## Principais tecnologias e frameworks utilizados
