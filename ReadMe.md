@@ -4,7 +4,7 @@ onde o mesmo cita as vantagens e desvantagens de cada padrão e define um vocabu
 
 ![alt text](camel-logo.png)
 
-## Objetivo
+# Objetivo
 Aplicação Desenvolvida para localizar no GitHub Desenvolvedores por filtros de Linguagens e Frameworks, afim de auxiliar Recrutadores da área de Tecnologia, em síntese, o Usuário irá selecionar até 3 linguagens e obrigatóriamente 3 frameworks, medida adotada afim de filtrar bastante os resultados da Consulta na API Do GitHub, a aplicação ira realizar uma consulta na API do GitHub conforme passado os parâmetros e com base nos repositórios dos usuários fará a mineração dos dados, e trará os melhores candidatos, ferramenta extramamente útil para mineraço de dados e análise de requisitos, deixei por default até então trazer somente os desenvolvedores da Cidade de Uberlãndia.
 
 ## Front-End
