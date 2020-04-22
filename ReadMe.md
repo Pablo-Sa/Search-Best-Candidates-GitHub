@@ -1,6 +1,8 @@
 # Search-Best-Candidates-GitHub
 Implementado Spring Data, Spring Security, Mockito, JUnit, AssertJ, Swagger, Tratamento de Exceções, Paginação e etc.
 
+![alt text](camel-logo.png)
+
 ## Front-End
 Front-End Será Desenvolvido e Disponibilizado em meus repositórios futuramente, com Angular 8.
 
