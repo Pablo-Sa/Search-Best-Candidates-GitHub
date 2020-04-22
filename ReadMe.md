@@ -5,7 +5,7 @@ onde o mesmo cita as vantagens e desvantagens de cada padrão e define um vocabu
 ![alt text](camel-logo.png)
 
 ## Front-End
-Front-End Será Desenvolvido e Disponibilizado em meus repositórios futuramente, com Angular 8.
+Front-End Será Desenvolvido e Disponibilizado em meus repositórios futuramente, em Angular 8.
 
 ## Executando e testando o projeto
 
