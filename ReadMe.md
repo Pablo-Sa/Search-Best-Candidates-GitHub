@@ -2,7 +2,7 @@
 Utilizado o Apache Camel (routing engine) para criar as rotas, seguindo as boas práticas do Enterprise Integration Patterns,
 onde o mesmo cita as vantagens e desvantagens de cada padrão e define um vocabulário comum a ser seguido. O Apache Camel, como framework de integração, implementa a maioria dos padrões de integração.
 
-![alt text](camel-logo.png)
+![alt text](kafka.jpg) ![alt text](camel-logo.png)
 
 # Objetivo
 Aplicação Desenvolvida para localizar no GitHub Desenvolvedores por filtros de Linguagens e Frameworks, afim de auxiliar Recrutadores da área de Tecnologia, em síntese, o Usuário irá selecionar até 3 linguagens e obrigatóriamente 3 frameworks, medida adotada afim de filtrar bastante os resultados da Consulta na API Do GitHub, a aplicação ira realizar uma consulta na API do GitHub conforme passado os parâmetros e com base nos repositórios dos usuários fará a mineração dos dados, e trará os melhores candidatos, ferramenta extramamente útil para mineraço de dados e análise de requisitos, você também poderá informar a localização em que deseja encontrar os candidatos, Mas lembre-se a API do GitHub em sua documentação deixa explicito que a consulta é exata, logo somente o que for pesquisado estritamente será o resposta.
