@@ -2,7 +2,6 @@ package br.com.integrationofcamel.dto.resquestpost;
 
 import java.io.Serializable;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
@@ -17,38 +16,25 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
-    "languages",
-    "frameworks"
+    "perfil"
 })
 public class DtoRequestPost implements Serializable
 {
 
-    @JsonProperty("languages")
-    private List<String> languages = null;
-    @JsonProperty("frameworks")
-    private List<String> frameworks = null;
+    @JsonProperty("perfil")
+    private Perfil perfil;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
-    private final static long serialVersionUID = 8166007201751073579L;
+    private final static long serialVersionUID = -4190525552056452782L;
 
-    @JsonProperty("languages")
-    public List<String> getLanguages() {
-        return languages;
+    @JsonProperty("perfil")
+    public Perfil getPerfil() {
+        return perfil;
     }
 
-    @JsonProperty("languages")
-    public void setLanguages(List<String> languages) {
-        this.languages = languages;
-    }
-
-    @JsonProperty("frameworks")
-    public List<String> getFrameworks() {
-        return frameworks;
-    }
-
-    @JsonProperty("frameworks")
-    public void setFrameworks(List<String> frameworks) {
-        this.frameworks = frameworks;
+    @JsonProperty("perfil")
+    public void setPerfil(Perfil perfil) {
+        this.perfil = perfil;
     }
 
     @JsonAnyGetter
@@ -63,7 +49,7 @@ public class DtoRequestPost implements Serializable
 
     @Override
     public String toString() {
-        return new ToStringBuilder(this).append("languages", languages).append("frameworks", frameworks).append("additionalProperties", additionalProperties).toString();
+        return new ToStringBuilder(this).append("perfil", perfil).append("additionalProperties", additionalProperties).toString();
     }
 
 }

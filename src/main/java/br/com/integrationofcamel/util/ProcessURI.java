@@ -7,15 +7,17 @@ public class ProcessURI {
 	public static String ProcessURIGitHubLanguages(DtoRequestPost dto) {
 
 		String languages = "";
-
-		for (String element : dto.getLanguages()) {
+		String locationRequest=dto.getPerfil().getLocalion();
+		String location=locationRequest.replaceAll(" ", "%20");
+		
+		for (String element : dto.getPerfil().getLanguages()) {
 			if (languages.isEmpty())
 				languages = "language:" + element;
 			else
-				languages = languages + "+language:" + element;
+				languages = languages + "+language:"+ element;
 		}
 
-		String URI = languages + "+location:uberlandia";
+		String URI = languages + "+location:"+location;
 		return URI;
 	}
 
@@ -23,7 +25,7 @@ public class ProcessURI {
 
 		String frameworks = "";
 
-		for (String element : dto.getFrameworks()) {
+		for (String element : dto.getPerfil().getFrameworks()) {
 			if (frameworks.isEmpty())
 				frameworks = element;
 			else

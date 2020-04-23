@@ -30,12 +30,12 @@ public class MyRouteBuilder extends RouteBuilder {
 		.setHeader(Exchange.CONTENT_TYPE, constant("application/json"))
 		.unmarshal(jDataFormatRequestPost)
 		.process(new ProcessRequestPost())
-		.to("kafka:BestCandidates?brokers=localhost:9092")
+	//	.to("kafka:BestCandidates?brokers=localhost:9092")
 		.end();
 		
-		from("kafka:BestCandidates?brokers=localhost:9092").process(new ProcessEndPointGitHub())
-		.to("cql://localhost/camel_ks?cql=")
-		.end();
+	//	from("kafka:BestCandidates?brokers=localhost:9092").process(new ProcessEndPointGitHub())
+//		.to("cql://localhost/camel_ks?cql=")
+	//	.end();
 	}
 }
 
