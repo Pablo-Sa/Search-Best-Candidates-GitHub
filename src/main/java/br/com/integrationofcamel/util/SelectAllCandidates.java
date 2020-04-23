@@ -2,9 +2,11 @@ package br.com.integrationofcamel.util;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import br.com.integrationofcamel.dto.endpointgithub.DtoEndPointGitHub;
+import br.com.integrationofcamel.dto.finalcandidates.Finalcandidate;
 import br.com.integrationofcamel.dto.usersgithub.DtoEndPointGitHubUsersProfile;
 import br.com.integrationofcamel.dto.usersgithub.Item;
 
@@ -19,14 +21,19 @@ public class SelectAllCandidates {
 		return allCandidates;
 	}
 
-	public static ArrayList<String> ProcessRepositories(DtoEndPointGitHub users) {
+	public static ArrayList<Finalcandidate> ProcessRepositories(DtoEndPointGitHub users) {
 
-		Set<String> set = new HashSet<String>();
+		Finalcandidate candidates = new Finalcandidate();
+
+		Set<Finalcandidate> allCandidatenoRepeatforRepository = new HashSet<Finalcandidate>();
+
 		for (br.com.integrationofcamel.dto.endpointgithub.Item element : users.getItems()) {
-			set.add(element.getOwner().getLogin());
+			candidates.setAvatarUrl(element.getOwner().getAvatarUrl());
+			candidates.setCandidate(element.getOwner().getLogin());
+			allCandidatenoRepeatforRepository.add(candidates);
 		}
 
-		ArrayList<String> allCandidates = new ArrayList<String>(set);
-		return allCandidates;
+		ArrayList<Finalcandidate> allcandidates = new ArrayList<Finalcandidate>(allCandidatenoRepeatforRepository);
+		return allcandidates;
 	}
 }

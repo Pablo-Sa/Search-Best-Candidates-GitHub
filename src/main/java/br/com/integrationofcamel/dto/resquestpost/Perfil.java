@@ -19,7 +19,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @JsonPropertyOrder({
     "languages",
     "frameworks",
-    "localion"
+    "location"
 })
 public class Perfil implements Serializable
 {
@@ -28,8 +28,8 @@ public class Perfil implements Serializable
     private List<String> languages = null;
     @JsonProperty("frameworks")
     private List<String> frameworks = null;
-    @JsonProperty("localion")
-    private String localion;
+    @JsonProperty("location")
+    private String location;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
     private final static long serialVersionUID = -3037624924718247381L;
@@ -54,14 +54,14 @@ public class Perfil implements Serializable
         this.frameworks = frameworks;
     }
 
-    @JsonProperty("localion")
-    public String getLocalion() {
-        return localion;
+    @JsonProperty("location")
+    public String getlocation() {
+        return location;
     }
 
-    @JsonProperty("localion")
-    public void setLocalion(String localion) {
-        this.localion = localion;
+    @JsonProperty("location")
+    public void setlocation(String location) {
+        this.location = location;
     }
 
     @JsonAnyGetter
@@ -76,7 +76,7 @@ public class Perfil implements Serializable
 
     @Override
     public String toString() {
-        return new ToStringBuilder(this).append("languages", languages).append("frameworks", frameworks).append("localion", localion).append("additionalProperties", additionalProperties).toString();
+        return new ToStringBuilder(this).append("languages", languages).append("frameworks", frameworks).append("location", location).append("additionalProperties", additionalProperties).toString();
     }
 
 }

@@ -7,7 +7,7 @@ public class ProcessURI {
 	public static String ProcessURIGitHubLanguages(DtoRequestPost dto) {
 
 		String languages = "";
-		String locationRequest=dto.getPerfil().getLocalion();
+		String locationRequest=dto.getPerfil().getlocation();
 		String location=locationRequest.replaceAll(" ", "%20");
 		
 		for (String element : dto.getPerfil().getLanguages()) {

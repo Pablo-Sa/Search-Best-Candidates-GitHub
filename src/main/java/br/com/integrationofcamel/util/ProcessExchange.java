@@ -1,11 +1,16 @@
 package br.com.integrationofcamel.util;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
+import com.sun.istack.logging.Logger;
 
 import br.com.integrationofcamel.dto.endpointgithub.DtoEndPointGitHub;
+import br.com.integrationofcamel.dto.finalcandidates.FinalCandidatesEvaluated;
+import br.com.integrationofcamel.dto.finalcandidates.Finalcandidate;
 import br.com.integrationofcamel.dto.resquestpost.DtoRequestPost;
 import br.com.integrationofcamel.dto.usersgithub.DtoEndPointGitHubUsersProfile;
 
@@ -37,14 +42,14 @@ public class ProcessExchange {
 				obj = consomerGit.RequestGetProfileGitHub(UriLanguages + "&page=" + page_control_paginable);
 
 				candidates.addAll(SelectAllCandidates.ProcessUserProfile(obj));
-				
+
 				page_control_paginable += 1;
-				
+
 				try {
 					Thread.sleep(10000);
-				} catch (Exception e) {
-					// TODO: handle exception
-				}finally {
+				} catch (Exception ex) {
+					Logger.getLogger(ConsomerGit.class.getName(), null).log(Level.SEVERE, null, ex);
+				} finally {
 					continue;
 				}
 			}
@@ -52,52 +57,53 @@ public class ProcessExchange {
 		return candidates;
 	}
 
-	public static ArrayList<String> frameworks(DtoRequestPost object, ArrayList<String> candidates)
+	public static FinalCandidatesEvaluated frameworks(DtoRequestPost object, ArrayList<String> candidatesLogin)
 			throws JsonMappingException, JsonProcessingException, InterruptedException {
 
 		String UriFrameworks;
-		
-		UriFrameworks = ProcessURI.ProcessURIGitHubFrameworks(object);
-		
-		ConsomerGit consomerGit = ConsomerGit.getInstance();
-		
-		DtoEndPointGitHub obj = new DtoEndPointGitHub();
-		
-		String userList = "";
-		
-		int controlList = 0;
-		int controlIndexList=10;
-		ArrayList<String> finalCandidates = new ArrayList<>();
 
-		for (String element : candidates) {
-			
-			if (controlList ==controlIndexList) {
-				userList =userList+";+user:" + element;
-				controlIndexList=controlIndexList+10;
+		UriFrameworks = ProcessURI.ProcessURIGitHubFrameworks(object);
+
+		ConsomerGit consomerGit = ConsomerGit.getInstance();
+
+		DtoEndPointGitHub obj = new DtoEndPointGitHub();
+
+		String userList = "";
+
+		int controlList = 0;
+		int controlIndexList = 10;
+
+		for (String element : candidatesLogin) {
+
+			if (controlList == controlIndexList) {
+				userList = userList + ";+user:" + element;
+				controlIndexList = controlIndexList + 10;
 				controlList++;
-			}else {
-			userList =userList+"+user:" + element;
-			controlList++;
+			} else {
+				userList = userList + "+user:" + element;
+				controlList++;
 			}
-		
-     	}
-		String[] textoSeparado = userList.split(";");
-		
-		for (String users : textoSeparado) {
-			 obj = consomerGit.RequestGetRepositoriesGitHub(UriFrameworks+users);
-			 finalCandidates.addAll(SelectAllCandidates.ProcessRepositories(obj));
-				try {
-					Thread.sleep(10000);
-				} catch (Exception e) {
-					// TODO: handle exception
-				}finally {
-					continue;
-				}				
+
 		}
-		
-		System.out.println(finalCandidates.toString());
-		
-		return finalCandidates;
-	}	
+		String[] userListConcatenad = userList.split(";");
+
+		FinalCandidatesEvaluated allCandidatesList = new FinalCandidatesEvaluated();
+		ArrayList<Finalcandidate> candidateIterator = new ArrayList<Finalcandidate>();
+
+		for (String users : userListConcatenad) {
+			obj = consomerGit.RequestGetRepositoriesGitHub(UriFrameworks + users);
+			candidateIterator.addAll(SelectAllCandidates.ProcessRepositories(obj));
+			try {
+				Thread.sleep(10000);
+			} catch (Exception ex) {
+				Logger.getLogger(ConsomerGit.class.getName(), null).log(Level.SEVERE, null, ex);
+			} finally {
+				continue;
+			}
+		}
+
+		allCandidatesList.setFinalcandidates(candidateIterator);
+		return allCandidatesList;
+	}
 
 }
