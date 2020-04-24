@@ -31,10 +31,12 @@ Esta aplicação ficará aguardando o input dos dados através de uma requisiç�
 
 
 
-Tal EndPoint está sendo disponibilizado pelo Apache Camel no caminho : http://localhost:8098/:0/searchcandidate , ao receber 
-o Json, fará o transporte da informação para  a rota "direct:searchcandidaterouter", em tal rota esse Json será processado serializado em objeto Java e em "ProcessRequestPost()", será feito a interceptação do body da requisição e trabalhada a informação, sendo realizado a serialização do mesmo, do Json para um Objeto Java através do Processador Jackson, uma vez que os dados estão no objeto Java, o mesmo é transportado por vários métodos que farão a montagem da query de pesquisa na API do GitHub, bem como o consumo da mesma e por fim será retornado em um outro objeto os candidatos que se enquadrão nos parâmetros de busca informado, seguindo o padrão informado acima, esse Objeto será transportado para uma segunda rota, a   "direct:deserializablefinalcandidates", nesta rota, será feito a deserialização, do Objeto para Json e por fim enviado ao Tópico do Kafka chamado "finallCandidatesList".
+   Tal EndPoint está sendo disponibilizado pelo Apache Camel no caminho : http://localhost:8098/:0/searchcandidate , ao receber o Json, fará o transporte da informação para  a rota "direct:searchcandidaterouter", em tal rota esse Json será processado serializado em objeto Java e em "ProcessRequestPost()", será feito a interceptação do body da requisição e trabalhada a informação, sendo realizado a serialização do mesmo, do Json para um Objeto Java através do Processador Jackson, uma vez que os dados estão no objeto Java, o mesmo é transportado por vários métodos que farão a montagem da query de pesquisa na API do GitHub, bem como o consumo da mesma e por fim será retornado em um outro objeto os candidatos que se enquadrão nos parâmetros de busca informado, seguindo o padrão informado acima, esse Objeto será transportado para uma segunda rota, a   "direct:deserializablefinalcandidates", nesta rota, será feito a deserialização, do Objeto para Json e por fim enviado ao Tópico do Kafka chamado "finallCandidatesList". Abaixo Segue Trecho da Implementação descrita.
 
-## Front-End
+## Apache Kafka
+  O Apache Kafka é uma plataforma open-source de processamento de streams, o mesmo fará a gestão das mensagens enviadas pelo Apache Camel e usando o Protocolo WebSocket, o Front-End fará o consumo das mensagens deste tópico e exibirá os finalistas no Browser.
+
+## Front-End  - Angular 8
 Front-End Será Desenvolvido e Disponibilizado em meus repositórios futuramente, em Angular 8.
 
 ## Executando e testando o projeto
