@@ -11,17 +11,25 @@ Aplicação Desenvolvida para localizar no GitHub Desenvolvedores por filtros de
 ## Ciclo de Vida da Informação
 Esta aplicação ficará aguardando o input dos dados através de uma requisição HTTP POST, necessáriamente aguardando um objeto, descrito em Json como segue abaixo:
 
+#### Abaixo exemplo do Objeto a ser informado no body da Requisição POST 
+
 {
 
   "perfil":{
   
-  "languages": ["Java","JavaScript","html"],
-  
+  "languages": ["Java","JavaScript","html"],                                    
+                                                                                
   "frameworks" : ["Junit","Swagger","Mockito"],
   
   "location": "Uberlândia"}
   
 }
+
+
+#### Abaixo Segue a Resposta, que também será enviada a um Tópico no Kafka que falaremos mais adiante
+![alt text](response.png)
+
+
 
 Tal EndPoint está sendo disponibilizado pelo Apache Camel no caminho : http://localhost:8098/:0/searchcandidate , ao receber 
 o Objeto, fará o transporte da informação para  a rota "direct:searchcandidaterouter", em tal rota esse objeto será processado
