@@ -16,6 +16,7 @@ import br.com.integrationofcamel.dto.usersgithub.DtoEndPointGitHubUsersProfile;
 
 public class ProcessExchange {
 
+	@SuppressWarnings("finally")
 	public static ArrayList<String> languages(DtoRequestPost object)
 			throws JsonMappingException, JsonProcessingException, InterruptedException {
 
@@ -39,14 +40,15 @@ public class ProcessExchange {
 
 			for (int i = 30; i <= total_count; i += 30) {
 
-				obj = consomerGit.RequestGetProfileGitHub(UriLanguages + "&page=" + page_control_paginable);
-
-				candidates.addAll(SelectAllCandidates.ProcessUserProfile(obj));
-
-				page_control_paginable += 1;
-
 				try {
 					Thread.sleep(10000);
+					
+					obj = consomerGit.RequestGetProfileGitHub(UriLanguages + "&page=" + page_control_paginable);		
+					
+					candidates.addAll(SelectAllCandidates.ProcessUserProfile(obj));
+
+					page_control_paginable += 1;
+
 				} catch (Exception ex) {
 					Logger.getLogger(ConsomerGit.class.getName(), null).log(Level.SEVERE, null, ex);
 				} finally {

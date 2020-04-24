@@ -45,6 +45,7 @@ public class ConsomerGit {
 
 	try {
 		HttpGet httpGet = new HttpGet(ConsomerGit.URIBaseUsersGit + path);
+		System.out.println("Usuários: "+ConsomerGit.URIBaseUsersGit+ path);
 		ResponseHandler<String> responseHandler = new ResponseHandler<String>() {
 			@Override
 			public String handleResponse(final HttpResponse response) throws ClientProtocolException, IOException {
@@ -75,6 +76,7 @@ public class ConsomerGit {
 
 	try {
 		HttpGet httpGet = new HttpGet(ConsomerGit.URIBaseRepositoreGit + path);
+		System.out.println("Repositório Git: "+ConsomerGit.URIBaseRepositoreGit + path);
 		ResponseHandler<String> responseHandler = new ResponseHandler<String>() {
 			@Override
 			public String handleResponse(final HttpResponse response) throws ClientProtocolException, IOException {
