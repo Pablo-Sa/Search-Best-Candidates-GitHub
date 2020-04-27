@@ -36,10 +36,12 @@ public class ProcessExchange {
 
 		candidates.addAll(SelectAllCandidates.ProcessUserProfile(obj));
 
-		if (total_count > 30) {
+		if (total_count > 99) {
 
-			for (int i = 30; i <= total_count; i += 30) {
-
+			for (int i = 99; i <= total_count; i += 100) {
+				if(page_control_paginable == 11)
+					break;
+				
 				try {
 					Thread.sleep(10000);
 					
@@ -48,6 +50,7 @@ public class ProcessExchange {
 					candidates.addAll(SelectAllCandidates.ProcessUserProfile(obj));
 
 					page_control_paginable += 1;
+					
 
 				} catch (Exception ex) {
 					Logger.getLogger(ConsomerGit.class.getName(), null).log(Level.SEVERE, null, ex);
@@ -59,6 +62,7 @@ public class ProcessExchange {
 		return candidates;
 	}
 
+	@SuppressWarnings("finally")
 	public static FinalCandidatesEvaluated frameworks(DtoRequestPost object, ArrayList<String> candidatesLogin)
 			throws JsonMappingException, JsonProcessingException, InterruptedException {
 
@@ -102,9 +106,11 @@ public class ProcessExchange {
 			} finally {
 				continue;
 			}
+			
 		}
 
 		allCandidatesList.setFinalcandidates(candidateIterator);
+		System.out.println(allCandidatesList.toString());
 		return allCandidatesList;
 	}
 

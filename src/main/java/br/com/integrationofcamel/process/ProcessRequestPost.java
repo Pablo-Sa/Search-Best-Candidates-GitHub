@@ -18,6 +18,12 @@ public class ProcessRequestPost implements Processor {
 	public void process(Exchange exchange) throws Exception {
 		DtoRequestPost dto = exchange.getIn().getBody(DtoRequestPost.class);
 		candidates = ProcessExchange.languages(dto);
+		
+		for (String element : candidates) {
+			System.out.println(element);
+		}
+		
+		
 		finalAllCandidates = ProcessExchange.frameworks(dto, candidates);
 		exchange.getOut().setBody(finalAllCandidates, FinalCandidatesEvaluated.class);
 	}

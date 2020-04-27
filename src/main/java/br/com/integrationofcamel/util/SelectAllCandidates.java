@@ -34,6 +34,12 @@ public class SelectAllCandidates {
 		}
 
 		ArrayList<Finalcandidate> allcandidates = new ArrayList<Finalcandidate>(allCandidatenoRepeatforRepository);
+		for (Finalcandidate finalcandidate : allcandidates) {
+			System.out.println(finalcandidate.getCandidate().toString());
+		}
+		
+		
+		
 		return allcandidates;
 	}
 }

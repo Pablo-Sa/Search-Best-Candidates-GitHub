@@ -44,8 +44,8 @@ public class ConsomerGit {
 		String responseBody = null;
 
 	try {
-		HttpGet httpGet = new HttpGet(ConsomerGit.URIBaseUsersGit + path);
-		System.out.println("Usuários: "+ConsomerGit.URIBaseUsersGit+ path);
+		HttpGet httpGet = new HttpGet(ConsomerGit.URIBaseUsersGit + path+"&per_page=100");
+		System.out.println("Usuários: "+ConsomerGit.URIBaseUsersGit+ path+"&per_page=100");
 		ResponseHandler<String> responseHandler = new ResponseHandler<String>() {
 			@Override
 			public String handleResponse(final HttpResponse response) throws ClientProtocolException, IOException {
