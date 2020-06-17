@@ -38,8 +38,8 @@ Esta aplicação ficará aguardando o input dos dados através de uma requisiç�
 ## Apache Kafka
   O Apache Kafka é uma plataforma open-source de processamento de streams, o mesmo fará a gestão das mensagens enviadas pelo Apache Camel e usando o Protocolo WebSocket, o Front-End fará o consumo das mensagens deste tópico e exibirá os finalistas no Browser.
 
-## Front-End  - Angular 8
-Front-End Será Desenvolvido e Disponibilizado em meus repositórios futuramente, em Angular 8.
+## Front-End  - ReactJS
+Front-End Será Desenvolvido e Disponibilizado em meus repositórios futuramente, ReactJS.
 
 ## Executando e testando o projeto
 
