@@ -17,7 +17,7 @@ Esta aplicação ficará aguardando o input dos dados através de uma requisiç�
 
   "perfil":{
   
-  "languages": ["Java","JavaScript","html"],                                    
+  "languages": ["Java","JavaScript","Go"],                                    
                                                                                 
   "frameworks" : ["Junit","Swagger","Mockito"],
   
